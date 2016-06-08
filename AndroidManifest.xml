@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lnpdit.policealarm"
+    android:versionCode="34"
+    android:versionName="2.2.1" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="com.sxit.dreamiya.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    
+
+    <!-- GPS权限 -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />  
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />  
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />  
+<uses-permission android:name="android.permission.INTERNET" /> 
+
+<!-- 地图包、搜索包需要的基础权限 -->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 定位包、导航包需要的额外权限（注：基础权限也需要） -->
+
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+
+    
+    <application
+        android:name="com.lnpdit.policealarm.base.application.DemoApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/horizontal_slide"  >
+        <activity
+            android:name="com.lnpdit.policealarm.page.activity.WelcomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.lnpdit.policealarm.page.activity.LoginActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="登陆页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.policealarm.page.activity.AlarmListActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="报警信息列表页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.policealarm.page.activity.AlarmInformationActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="已处理的报警信息详情页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.policealarm.page.activity.AlarmUnInformationActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="未处理的报警信息详情页面" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.policealarm.page.activity.Smarter_Activity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="警务端列表ViewPager" />
+        </activity>
+        
+         <activity
+            android:name="com.lnpdit.policealarm.page.adapter.image.ImagePagerActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="警务詳情" />
+        </activity>
+        <activity
+            android:name="com.lnpdit.policealarm.page.activity.MapActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="DESCRIPTION"
+                android:value="位置地图" />
+        </activity>
+        <!-- 高德地图 -->
+        <service android:name="com.amap.api.location.APSService" >
+        </service>
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="7abc9e236c23e7bd1e1b12895bc1bf16"/>
+
+         <activity android:name="com.amap.demo.LocationManager" >
+             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
+    </application>
+
+</manifest>
